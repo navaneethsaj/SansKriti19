@@ -142,40 +142,50 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_margin="4dp"
+                    android:layout_marginHorizontal="10dp"
+                    android:layout_marginVertical="4dp"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="horizontal">
 
 
                     <LinearLayout
+                        android:background="@drawable/devbg"
+                        android:elevation="8dp"
                         android:id="@+id/don"
+                        android:padding="4dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
                         android:layout_margin="4dp"
                         android:layout_weight="1"
-                        android:orientation="vertical"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
+                        android:orientation="vertical">
+
                         <ImageView
-                            android:src="@drawable/donatto"
-                            android:layout_gravity="center"
                             android:layout_width="120dp"
-                            android:layout_height="120dp" />
+                            android:layout_height="120dp"
+                            android:layout_gravity="center"
+                            android:src="@drawable/donatto" />
+
                         <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
                             android:layout_gravity="center"
                             android:gravity="center"
-                            android:textColor="@color/textblack"
                             android:text="Donatto\n2016-2020"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content" />
+                            android:textColor="@color/textblack" />
+
                         <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
                             android:layout_gravity="center"
                             android:gravity="center"
-                            android:textColor="@color/textblack"
                             android:text="Web Head"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content" />
+                            android:textColor="@color/textblack" />
                     </LinearLayout>
                     <LinearLayout
+                        android:background="@drawable/devbg"
+                        android:elevation="8dp"
+                        android:padding="4dp"
                         android:layout_weight="1"
                         android:layout_margin="4dp"
                         android:orientation="vertical"
@@ -203,11 +213,16 @@
                     </LinearLayout>
                 </LinearLayout>
                 <LinearLayout
+                    android:layout_marginHorizontal="10dp"
+                    android:layout_marginVertical="4dp"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="horizontal">
 
                     <LinearLayout
+                        android:padding="4dp"
+                        android:background="@drawable/devbg"
+                        android:elevation="8dp"
                         android:layout_margin="4dp"
                         android:layout_weight="1"
                         android:orientation="vertical"
@@ -234,6 +249,9 @@
                             android:layout_height="wrap_content" />
                     </LinearLayout>
                     <LinearLayout
+                        android:padding="4dp"
+                        android:background="@drawable/devbg"
+                        android:elevation="8dp"
                         android:layout_weight="1"
                         android:layout_margin="4dp"
                         android:orientation="vertical"
