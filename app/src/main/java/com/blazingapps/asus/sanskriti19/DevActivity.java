@@ -5,10 +5,12 @@ import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.LinearLayout;
 
 public class DevActivity extends AppCompatActivity {
-    LinearLayout nav,arv,don;
+    LinearLayout nav,arv,don,rah;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -16,6 +18,25 @@ public class DevActivity extends AppCompatActivity {
         nav=findViewById(R.id.nav);
         arv=findViewById(R.id.arv);
         don=findViewById(R.id.don);
+        rah=findViewById(R.id.rah);
+
+        Animation animation = AnimationUtils.loadAnimation(getApplicationContext(),
+                R.anim.moveleft);
+        nav.startAnimation(animation);
+
+
+        Animation animation2 = AnimationUtils.loadAnimation(getApplicationContext(),
+                R.anim.moveright);
+        arv.startAnimation(animation2);
+
+
+        Animation animation3 = AnimationUtils.loadAnimation(getApplicationContext(),
+                R.anim.moveup);
+        don.startAnimation(animation3);
+
+        Animation animation4 = AnimationUtils.loadAnimation(getApplicationContext(),
+                R.anim.movedown);
+        rah.startAnimation(animation4);
 
         nav.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -183,6 +183,7 @@
                             android:textColor="@color/textblack" />
                     </LinearLayout>
                     <LinearLayout
+                        android:id="@+id/rah"
                         android:background="@drawable/devbg"
                         android:elevation="8dp"
                         android:padding="4dp"
