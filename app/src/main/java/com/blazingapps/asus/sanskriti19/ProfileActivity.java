@@ -16,6 +16,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
@@ -114,7 +115,7 @@ public class ProfileActivity extends AppCompatActivity {
     }
 
     public void showCompleteProfile(){
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        final AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Details");
         LayoutInflater inflater = getLayoutInflater();
         View alertLayout = inflater.inflate(R.layout.layout_complete_profile, null);
@@ -131,6 +132,11 @@ public class ProfileActivity extends AppCompatActivity {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 String phone_no = input_phone.getText().toString();
+                if (phone_no.length()!=10){
+                    Toast.makeText(getApplicationContext(),"Invalid Phone No",Toast.LENGTH_SHORT).show();
+                    showCompleteProfile();
+                    return;
+                }
                 String collage = input_collage.getText().toString();
                 String semester = input_semester.getSelectedItem().toString();
                 updateProfile(phone_no,collage,semester);

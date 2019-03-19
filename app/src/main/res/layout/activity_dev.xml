@@ -158,8 +158,8 @@
                         <ImageView
                             android:src="@drawable/donatto"
                             android:layout_gravity="center"
-                            android:layout_width="150dp"
-                            android:layout_height="150dp" />
+                            android:layout_width="120dp"
+                            android:layout_height="120dp" />
                         <TextView
                             android:layout_gravity="center"
                             android:gravity="center"
@@ -184,8 +184,8 @@
                         <ImageView
                             android:src="@drawable/rahul"
                             android:layout_gravity="center"
-                            android:layout_width="150dp"
-                            android:layout_height="150dp" />
+                            android:layout_width="120dp"
+                            android:layout_height="120dp" />
                         <TextView
                             android:layout_gravity="center"
                             android:gravity="center"
@@ -216,8 +216,8 @@
                         <ImageView
                             android:src="@drawable/sreejith"
                             android:layout_gravity="center"
-                            android:layout_width="150dp"
-                            android:layout_height="150dp" />
+                            android:layout_width="120dp"
+                            android:layout_height="120dp" />
                         <TextView
                             android:layout_gravity="center"
                             android:gravity="center"
@@ -242,8 +242,8 @@
                         <ImageView
                             android:src="@drawable/sreekanth"
                             android:layout_gravity="center"
-                            android:layout_width="150dp"
-                            android:layout_height="150dp" />
+                            android:layout_width="120dp"
+                            android:layout_height="120dp" />
                         <TextView
                             android:layout_gravity="center"
                             android:gravity="center"
