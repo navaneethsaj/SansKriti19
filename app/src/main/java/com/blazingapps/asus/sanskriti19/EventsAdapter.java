@@ -66,8 +66,9 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.MyViewHold
                 whatsappIntent.setType("text/plain");
                 whatsappIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 whatsappIntent.setPackage("com.whatsapp");
-                whatsappIntent.putExtra(Intent.EXTRA_TEXT, item.getEvent_name()+"\n\n"+item.getEvent_desc()+"\nPoster : "
-                +item.getEvent_url()+"\nShared from Sanskriti19 App :"+"http://play.google.com/store/apps/details?id=" + context.getPackageName());
+                whatsappIntent.putExtra(Intent.EXTRA_TEXT, "Sanskriti19\nMar Athanasius Collage of Engineering,Kothamangalam\nNational level arts fest\n\n"+
+                        "Event Name : "+item.getEvent_name()+"\n\n"+item.getEvent_desc()+"\n\nPoster : "
+                +item.getEvent_url()+"\n\nShared from Sanskriti19 App\nDownload @ "+"http://play.google.com/store/apps/details?id=" + context.getPackageName());
 
                 try {
                     context.startActivity(whatsappIntent);
