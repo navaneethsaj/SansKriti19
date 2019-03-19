@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".ProfileActivity">
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/appbar"
+        android:background="@color/colorPrimary"
+        android:elevation="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="60dp">
+
+            <Button
+                android:onClick="profileExit"
+                android:id="@+id/profile_back"
+                android:background="@drawable/back"
+                android:layout_width="30dp"
+                android:layout_height="30dp" />
+
+            <TextView
+                android:gravity="center"
+                android:text="Profile"
+                android:textSize="20dp"
+                android:paddingRight="40dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </android.support.v7.widget.Toolbar>
+    </android.support.design.widget.AppBarLayout>
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_below="@id/appbar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:elevation="8dp"
+            android:background="@color/colorPrimary"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <LinearLayout
+                android:layout_centerInParent="true"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:paddingBottom="10dp"
+                    android:textSize="18dp"
+                    android:text="Sanskriti'19"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <ImageView
+                    android:id="@+id/profileImageView"
+                    android:src="@drawable/ganesh"
+                    android:layout_width="160dp"
+                    android:layout_height="160dp" />
+                <TextView
+                    android:id="@+id/user_name"
+                    android:layout_marginTop="10dp"
+                    android:textSize="20dp"
+                    android:text="Navaneeth K"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_weight="1.4"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_above="@id/collage_name"
+                android:layout_centerInParent="true"
+                android:id="@+id/semester"
+                android:text="Semester"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:layout_centerInParent="true"
+                android:text="Mar Athanasius Collage Of Engg"
+                android:id="@+id/collage_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:layout_below="@id/collage_name"
+                android:layout_centerInParent="true"
+                android:text="952398166"
+                android:id="@+id/phone_no"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <Button
+                android:paddingHorizontal="30dp"
+                android:elevation="16dp"
+                android:background="@color/white"
+                android:layout_marginTop="10dp"
+                android:layout_centerInParent="true"
+                android:layout_below="@+id/phone_no"
+                android:onClick="signOut"
+                android:text="Sign Out"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </RelativeLayout>
+    </LinearLayout>
+</RelativeLayout>

@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "423510439013",
+    "firebase_url": "https://sanskriti19-3329e.firebaseio.com",
+    "project_id": "sanskriti19-3329e",
+    "storage_bucket": "sanskriti19-3329e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:423510439013:android:e73a20c43fabc0e5",
+        "android_client_info": {
+          "package_name": "com.blazingapps.asus.sanskriti19"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "423510439013-a355l8bafqmp1pgkuh4u6r8kpedtr0p5.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.blazingapps.asus.sanskriti19",
+            "certificate_hash": "b7f2dcf8046442d7d287a1f97eaadea8270835e4"
+          }
+        },
+        {
+          "client_id": "423510439013-t3sdbqlfm0pgrkpsggtpf7rgorjlrv95.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDHfFQVTcuz2Rmo2Uod38v7jk0S1JwXUhY"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "423510439013-t3sdbqlfm0pgrkpsggtpf7rgorjlrv95.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
