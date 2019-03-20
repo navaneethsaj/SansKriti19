@@ -15,22 +15,18 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 public class SplashScreen extends AppCompatActivity {
-    private static final long SPLASH_DISPLAY_LENGTH = 2000;
+    private static final long SPLASH_DISPLAY_LENGTH = 3000;
     private FirebaseAuth mAuth;
     ImageView imageView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_screen);
-        mAuth = FirebaseAuth.getInstance();
         imageView = findViewById(R.id.logo);
-        Animation animation = AnimationUtils.loadAnimation(getApplicationContext(),
-                R.anim.logo_entry);
-        imageView.startAnimation(animation);
         Glide.with(this)
                 .load(R.drawable.giphy)
-                .placeholder(R.drawable.logo)
                 .into(imageView);
+        mAuth = FirebaseAuth.getInstance();
     }
 
     @Override

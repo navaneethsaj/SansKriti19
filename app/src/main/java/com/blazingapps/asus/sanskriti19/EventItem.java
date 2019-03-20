@@ -6,12 +6,14 @@ class EventItem {
     String event_id;
     String event_desc;
     String event_url;
+    String ticket_url;
 
-    public EventItem(String event_name, String event_id, String event_desc, String event_url) {
+    public EventItem(String event_name, String event_id, String event_desc, String event_url, String ticket_url) {
         this.event_name = event_name;
         this.event_id = event_id;
         this.event_desc = event_desc;
         this.event_url = event_url;
+        this.ticket_url = ticket_url;
     }
 
     public String getEvent_name() {
@@ -44,5 +46,9 @@ class EventItem {
 
     public void setEvent_url(String event_url) {
         this.event_url = event_url;
+    }
+
+    public String  getTicketUrl() {
+        return ticket_url;
     }
 }

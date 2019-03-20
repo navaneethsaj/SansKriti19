@@ -43,7 +43,7 @@
         <ImageView
             android:layout_width="150dp"
             android:layout_gravity="center_horizontal"
-            android:src="@drawable/radio_icon"
+            android:src="@drawable/song_icon"
             android:padding="10dp"
             android:layout_marginRight="5dp"
             android:layout_marginLeft="5dp"

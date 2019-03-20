@@ -50,7 +50,8 @@ public class StarredActivity extends AppCompatActivity {
                         String name = doc.getString("name");
                         String desc = doc.getString("desc");
                         String url = doc.getString("url");
-                        eventItems.add(new EventItem(name,name,desc,url));
+                        String ticketurl = ""+doc.getString("ticket_url");
+                        eventItems.add(new EventItem(name,name,desc,url,ticketurl));
                     }
                 }
                 mAdapter = new EventsAdapter(eventItems, getApplicationContext());

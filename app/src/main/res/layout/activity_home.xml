@@ -70,8 +70,8 @@
                         android:layout_centerVertical="true"
                         android:onClick="gotoDev"
                         android:scaleType="fitXY"
+                        android:padding="2dp"
                         android:layout_marginRight="10dp"
-                        android:padding="5dp"
                         android:src="@drawable/developer"
                         android:background="@color/transparent"
                         android:id="@+id/developerbutton"
@@ -82,15 +82,14 @@
                     <ImageButton
                         android:onClick="gotoNotification"
                         android:layout_centerVertical="true"
-                        android:padding="5dp"
                         android:scaleType="fitXY"
                         android:layout_marginRight="10dp"
                         android:src="@drawable/notification_ring"
                         android:id="@+id/notificationbutton"
                         android:background="@color/transparent"
                         android:layout_toLeftOf="@+id/developerbutton"
-                        android:layout_width="36dp"
-                        android:layout_height="36dp" />
+                        android:layout_width="40dp"
+                        android:layout_height="40dp" />
                 </RelativeLayout>
             </android.support.v7.widget.Toolbar>
 
@@ -116,27 +115,23 @@
                     android:layout_height="match_parent">
                 </LinearLayout>
                 <LinearLayout
+                    android:visibility="gone"
                     android:orientation="vertical"
                     android:layout_width="wrap_content"
                     android:layout_centerVertical="true"
                     android:layout_alignParentStart="true"
                     android:layout_marginTop="50dp"
+                    android:gravity="center"
                     android:layout_above="@id/centerhorizontal"
                     android:layout_height="match_parent">
 
-                    <TextView
-                        android:paddingVertical="4dp"
-                        android:paddingHorizontal="6dp"
+                    <ImageView
                         android:elevation="4dp"
-                        android:background="@drawable/scoreboard_bg"
+                        android:src="@drawable/leaderboard"
                         android:layout_margin="10dp"
-                        android:layout_gravity="center_vertical"
                         android:gravity="center"
-                        android:textSize="16dp"
-                        android:textColor="#1F82E6"
-                        android:text="SCOREBOARD"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
+                        android:layout_width="64dp"
+                        android:layout_height="64dp" />
                 </LinearLayout>
                 <LinearLayout
                     android:orientation="vertical"
@@ -154,7 +149,7 @@
                         android:elevation="16dp"
                         android:src="@drawable/star"
                         android:scaleType="fitXY"
-                        android:padding="8dp"
+                        android:padding="4dp"
                         android:background="@drawable/circle_bg"
                         android:layout_width="48dp"
                         android:layout_height="48dp" />
@@ -189,8 +184,8 @@
                             android:layout_centerHorizontal="true"
                             android:id="@+id/trophyimage"
                             android:layout_above="@+id/h1"
-                            android:layout_width="48dp"
-                            android:layout_height="48dp" />
+                            android:layout_width="88dp"
+                            android:layout_height="88dp" />
                         <LinearLayout
                             android:id="@+id/h1"
                             android:layout_centerInParent="true"
@@ -286,8 +281,8 @@
                                     android:layout_centerHorizontal="true"
                                     android:id="@+id/trophyimage3"
                                     android:layout_above="@+id/h3"
-                                    android:layout_width="48dp"
-                                    android:layout_height="48dp" />
+                                    android:layout_width="58dp"
+                                    android:layout_height="58dp" />
                                 <LinearLayout
                                     android:id="@+id/h3"
                                     android:layout_centerInParent="true"
@@ -368,6 +363,7 @@
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab"
+        android:visibility="gone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/fab_margin"
