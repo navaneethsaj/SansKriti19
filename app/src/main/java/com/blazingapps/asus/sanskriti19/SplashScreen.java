@@ -1,18 +1,21 @@
 package com.blazingapps.asus.sanskriti19;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
+import android.widget.VideoView;
 
+import com.bumptech.glide.Glide;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 public class SplashScreen extends AppCompatActivity {
-    private static final long SPLASH_DISPLAY_LENGTH = 1000;
+    private static final long SPLASH_DISPLAY_LENGTH = 2000;
     private FirebaseAuth mAuth;
     ImageView imageView;
     @Override
@@ -24,6 +27,10 @@ public class SplashScreen extends AppCompatActivity {
         Animation animation = AnimationUtils.loadAnimation(getApplicationContext(),
                 R.anim.logo_entry);
         imageView.startAnimation(animation);
+        Glide.with(this)
+                .load(R.drawable.giphy)
+                .placeholder(R.drawable.logo)
+                .into(imageView);
     }
 
     @Override

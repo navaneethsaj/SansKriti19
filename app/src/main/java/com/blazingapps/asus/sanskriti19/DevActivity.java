@@ -10,7 +10,7 @@ import android.view.animation.AnimationUtils;
 import android.widget.LinearLayout;
 
 public class DevActivity extends AppCompatActivity {
-    LinearLayout nav,arv,don,rah;
+    LinearLayout nav,arv,don,rah,sree,aks,jick;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -19,6 +19,9 @@ public class DevActivity extends AppCompatActivity {
         arv=findViewById(R.id.arv);
         don=findViewById(R.id.don);
         rah=findViewById(R.id.rah);
+        aks=findViewById(R.id.aks);
+        jick=findViewById(R.id.jick);
+        sree=findViewById(R.id.sreekanth_layout);
 
         Animation animation = AnimationUtils.loadAnimation(getApplicationContext(),
                 R.anim.moveleft);
@@ -68,6 +71,53 @@ public class DevActivity extends AppCompatActivity {
                     startActivity(intent);
                 } catch(Exception e) {
                     startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.instagram.com/donattomookken/")));
+                }
+            }
+        });
+        rah.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                try {
+                    Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("com.instagram.android.https://www.instagram.com/c__rahul/"));
+                    startActivity(intent);
+                } catch(Exception e) {
+                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.instagram.com/c__rahul/")));
+                }
+            }
+        });
+
+        sree.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                try {
+                    Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("com.instagram.android.https://www.instagram.com/sreekanth__v/"));
+                    startActivity(intent);
+                } catch(Exception e) {
+                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.instagram.com/sreekanth__v/")));
+                }
+            }
+        });
+
+        aks.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                try {
+                    Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("com.instagram.android.https://www.instagram.com/akshay__pradeep_/"));
+                    startActivity(intent);
+                } catch(Exception e) {
+                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.instagram.com/akshay__pradeep_/")));
+                }
+            }
+        });
+
+        jick.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                try {
+                    Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("com.instagram.android.https://www.instagram.com/jicks_sreejith/"));
+                    startActivity(intent);
+                } catch(Exception e) {
+                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.instagram.com/jicks_sreejith/")));
                 }
             }
         });

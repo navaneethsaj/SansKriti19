@@ -16,6 +16,7 @@ import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
 
+import java.util.Collections;
 import java.util.List;
 
 public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.MyViewHolder> {
@@ -41,6 +42,7 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.MyViewHold
 
     public EventsAdapter(List<EventItem> eventItems, Context context) {
         this.eventList = eventItems;
+        Collections.reverse(this.eventList);
         this.context = context;
     }
 
