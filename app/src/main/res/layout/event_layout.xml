@@ -38,7 +38,8 @@
                     <ImageButton
                         android:layout_gravity="center_vertical"
                         android:id="@+id/sharebtn"
-                        android:src="@drawable/ic_menu_share"
+                        android:src="@drawable/shareicon"
+                        android:scaleType="fitXY"
                         android:background="@color/transparent"
                         android:layout_width="36dp"
                         android:layout_height="36dp" />

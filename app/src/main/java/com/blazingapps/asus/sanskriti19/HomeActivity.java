@@ -18,6 +18,11 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.google.firebase.analytics.FirebaseAnalytics;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
@@ -38,6 +43,8 @@ public class HomeActivity extends AppCompatActivity {
     TextView team1,team2,team3,team4;
     TextView score1,score2,score3,score4;
     FirebaseFirestore db = FirebaseFirestore.getInstance();
+    FirebaseDatabase database = FirebaseDatabase.getInstance();
+    DatabaseReference myRef = database.getReference("events");
     private EventsAdapter mAdapter;
     LinearLayout l1,l2,l3,l4;
     ImageButton radio, star;
@@ -134,24 +141,45 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
-        db.collection("events").addSnapshotListener(new EventListener<QuerySnapshot>() {
+//        db.collection("events").addSnapshotListener(new EventListener<QuerySnapshot>() {
+//            @Override
+//            public void onEvent(@Nullable QuerySnapshot snapshots, @Nullable FirebaseFirestoreException e) {
+//                if (e != null) {
+//                    Log.w(TAG, "Listen failed.", e);
+//                    return;
+//                }
+//
+//                ArrayList<EventItem> eventItems = new ArrayList<>();
+//
+//                for (QueryDocumentSnapshot doc : snapshots) {
+//                    if (doc.get("name") != null) {
+//                        String name = doc.getString("name");
+//                        String desc = doc.getString("desc");
+//                        String url = doc.getString("url");
+//                        String ticketurl = ""+doc.getString("ticket_url");
+//                        eventItems.add(new EventItem(name,name,desc,url,ticketurl));
+//                    }
+//                }
+//                mAdapter = new EventsAdapter(eventItems, getApplicationContext());
+//                RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
+//                recyclerView.setLayoutManager(mLayoutManager);
+//                recyclerView.setItemAnimator(new DefaultItemAnimator());
+//                recyclerView.setAdapter(mAdapter);
+//            }
+//        });
+
+        myRef.addValueEventListener(new ValueEventListener() {
             @Override
-            public void onEvent(@Nullable QuerySnapshot snapshots, @Nullable FirebaseFirestoreException e) {
-                if (e != null) {
-                    Log.w(TAG, "Listen failed.", e);
-                    return;
-                }
-
+            public void onDataChange(DataSnapshot dataSnapshot) {
                 ArrayList<EventItem> eventItems = new ArrayList<>();
-
-                for (QueryDocumentSnapshot doc : snapshots) {
-                    if (doc.get("name") != null) {
-                        String name = doc.getString("name");
-                        String desc = doc.getString("desc");
-                        String url = doc.getString("url");
-                        String ticketurl = ""+doc.getString("ticket_url");
-                        eventItems.add(new EventItem(name,name,desc,url,ticketurl));
-                    }
+                for (DataSnapshot item: dataSnapshot.getChildren()) {
+                    // TODO: handle the post
+                    String name = item.child("name").getValue(String.class);
+                    Log.d(TAG,name);
+                    String desc = item.child("desc").getValue(String.class);
+                    String url = item.child("url").getValue(String.class);
+                    String ticketurl = ""+item.child("ticket_url").getValue(String.class);
+                    eventItems.add(new EventItem(name,name,desc,url,ticketurl));
                 }
                 mAdapter = new EventsAdapter(eventItems, getApplicationContext());
                 RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
@@ -159,7 +187,15 @@ public class HomeActivity extends AppCompatActivity {
                 recyclerView.setItemAnimator(new DefaultItemAnimator());
                 recyclerView.setAdapter(mAdapter);
             }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                // Getting Post failed, log a message
+                Log.w(TAG, "loadPost:onCancelled", databaseError.toException());
+                // ...
+            }
         });
+
     }
 
     public void gotoNotification(View view) {
