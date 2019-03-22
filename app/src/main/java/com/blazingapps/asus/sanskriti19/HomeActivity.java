@@ -16,6 +16,7 @@ import android.view.animation.AnimationUtils;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.analytics.FirebaseAnalytics;
 import com.google.firebase.database.DataSnapshot;
@@ -30,38 +31,50 @@ import com.google.firebase.firestore.FirebaseFirestoreSettings;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
+import java.net.InetAddress;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import javax.annotation.Nullable;
 
 public class HomeActivity extends AppCompatActivity {
 
+    static {
+        FirebaseDatabase.getInstance().setPersistenceEnabled(true);
+    }
     private static final String TAG = "TAGZ"
             ;
     private RecyclerView recyclerView;
     TextView team1,team2,team3,team4;
     TextView score1,score2,score3,score4;
     FirebaseFirestore db = FirebaseFirestore.getInstance();
-    FirebaseDatabase database = FirebaseDatabase.getInstance();
-    DatabaseReference myRef = database.getReference("events");
+    FirebaseDatabase database;
+    DatabaseReference myRef;
     private EventsAdapter mAdapter;
     LinearLayout l1,l2,l3,l4;
     ImageButton radio, star;
     private FirebaseAnalytics mFirebaseAnalytics;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+        database = FirebaseDatabase.getInstance();
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
         mFirebaseAnalytics.setAnalyticsCollectionEnabled(true);
+
+        if (!isInternetAvailable()){
+            Toast.makeText(getApplicationContext(),"Turn on internet to get updated events",Toast.LENGTH_LONG).show();
+        }
 
         FirebaseFirestoreSettings settings = new FirebaseFirestoreSettings.Builder()
                 .setPersistenceEnabled(true)
                 .build();
         db.setFirestoreSettings(settings);
 
+        myRef = database.getReference("events");;
         l1= findViewById(R.id.first_layout);
         l1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -157,14 +170,20 @@ public class HomeActivity extends AppCompatActivity {
 //                        String desc = doc.getString("desc");
 //                        String url = doc.getString("url");
 //                        String ticketurl = ""+doc.getString("ticket_url");
-//                        eventItems.add(new EventItem(name,name,desc,url,ticketurl));
+////                        HashMap<String, String> map = new HashMap<>();
+////                        map.put("name",name);
+////                        map.put("desc",desc);
+////                        map.put("url",url);
+////                        map.put("ticket_url",ticketurl);
+////                        myRef.child(doc.getId()).setValue(map);
+////                        eventItems.add(new EventItem(name,name,desc,url,ticketurl));
 //                    }
 //                }
-//                mAdapter = new EventsAdapter(eventItems, getApplicationContext());
-//                RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
-//                recyclerView.setLayoutManager(mLayoutManager);
-//                recyclerView.setItemAnimator(new DefaultItemAnimator());
-//                recyclerView.setAdapter(mAdapter);
+////                mAdapter = new EventsAdapter(eventItems, getApplicationContext());
+////                RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
+////                recyclerView.setLayoutManager(mLayoutManager);
+////                recyclerView.setItemAnimator(new DefaultItemAnimator());
+////                recyclerView.setAdapter(mAdapter);
 //            }
 //        });
 
@@ -277,5 +296,15 @@ public class HomeActivity extends AppCompatActivity {
         Animation animation = AnimationUtils.loadAnimation(getApplicationContext(),
                 R.anim.moveright);
         view.startAnimation(animation);
+    }
+    public boolean isInternetAvailable() {
+        try {
+            InetAddress ipAddr = InetAddress.getByName("google.com");
+            //You can replace it with your name
+            return !ipAddr.equals("");
+
+        } catch (Exception e) {
+            return false;
+        }
     }
 }

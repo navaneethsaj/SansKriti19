@@ -128,7 +128,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     private void updateUI(FirebaseUser user) {
 
         if (user == null){
-            Toast.makeText(getApplicationContext(),"Login Failed",Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(),"Login Failed, Network problem",Toast.LENGTH_SHORT).show();
+            alertDialog.dismiss();
 //            Snackbar.make(findViewById(R.id.main_layout), "Authentication Failed.", Snackbar.LENGTH_SHORT).show();
         }else {
             FirebaseFirestore db = FirebaseFirestore.getInstance();
